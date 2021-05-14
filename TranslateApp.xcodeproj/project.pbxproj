@@ -9,23 +9,33 @@
 /* Begin PBXBuildFile section */
 		FBE49B4D264EC81500A4A6F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B4C264EC81500A4A6F0 /* AppDelegate.swift */; };
 		FBE49B4F264EC81500A4A6F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B4E264EC81500A4A6F0 /* SceneDelegate.swift */; };
-		FBE49B51264EC81500A4A6F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B50264EC81500A4A6F0 /* ViewController.swift */; };
-		FBE49B54264EC81500A4A6F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBE49B52264EC81500A4A6F0 /* Main.storyboard */; };
 		FBE49B57264EC81500A4A6F0 /* TranslateApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B55264EC81500A4A6F0 /* TranslateApp.xcdatamodeld */; };
 		FBE49B59264EC81800A4A6F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBE49B58264EC81800A4A6F0 /* Assets.xcassets */; };
 		FBE49B5C264EC81800A4A6F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBE49B5A264EC81800A4A6F0 /* LaunchScreen.storyboard */; };
+		FBE49B68264EC9F300A4A6F0 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B67264EC9F300A4A6F0 /* TranslationViewController.swift */; };
+		FBE49B6B264ECA1E00A4A6F0 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B6A264ECA1E00A4A6F0 /* DictionaryViewController.swift */; };
+		FBE49B6E264ECA4500A4A6F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B6D264ECA4500A4A6F0 /* SettingsViewController.swift */; };
+		FBE49B74264EE71B00A4A6F0 /* LanguageSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B73264EE71B00A4A6F0 /* LanguageSelectorView.swift */; };
+		FBE49B79264EE91E00A4A6F0 /* HistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B78264EE91D00A4A6F0 /* HistoryTableView.swift */; };
+		FBE49B7C264EE9FB00A4A6F0 /* TranslationFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B7B264EE9FB00A4A6F0 /* TranslationFieldView.swift */; };
+		FBE49B80264F3C4500A4A6F0 /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B7F264F3C4500A4A6F0 /* DictionaryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FBE49B49264EC81500A4A6F0 /* TranslateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranslateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBE49B4C264EC81500A4A6F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBE49B4E264EC81500A4A6F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FBE49B50264EC81500A4A6F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FBE49B53264EC81500A4A6F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FBE49B56264EC81500A4A6F0 /* TranslateApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TranslateApp.xcdatamodel; sourceTree = "<group>"; };
 		FBE49B58264EC81800A4A6F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBE49B5B264EC81800A4A6F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBE49B5D264EC81800A4A6F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBE49B67264EC9F300A4A6F0 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		FBE49B6A264ECA1E00A4A6F0 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
+		FBE49B6D264ECA4500A4A6F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FBE49B73264EE71B00A4A6F0 /* LanguageSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectorView.swift; sourceTree = "<group>"; };
+		FBE49B78264EE91D00A4A6F0 /* HistoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableView.swift; sourceTree = "<group>"; };
+		FBE49B7B264EE9FB00A4A6F0 /* TranslationFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationFieldView.swift; sourceTree = "<group>"; };
+		FBE49B7F264F3C4500A4A6F0 /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +68,37 @@
 		FBE49B4B264EC81500A4A6F0 /* TranslateApp */ = {
 			isa = PBXGroup;
 			children = (
-				FBE49B4C264EC81500A4A6F0 /* AppDelegate.swift */,
-				FBE49B4E264EC81500A4A6F0 /* SceneDelegate.swift */,
-				FBE49B50264EC81500A4A6F0 /* ViewController.swift */,
-				FBE49B52264EC81500A4A6F0 /* Main.storyboard */,
+				FBE49B76264EE90100A4A6F0 /* View */,
+				FBE49B71264ECA5900A4A6F0 /* Controller */,
 				FBE49B58264EC81800A4A6F0 /* Assets.xcassets */,
 				FBE49B5A264EC81800A4A6F0 /* LaunchScreen.storyboard */,
+				FBE49B4C264EC81500A4A6F0 /* AppDelegate.swift */,
+				FBE49B4E264EC81500A4A6F0 /* SceneDelegate.swift */,
 				FBE49B5D264EC81800A4A6F0 /* Info.plist */,
 				FBE49B55264EC81500A4A6F0 /* TranslateApp.xcdatamodeld */,
 			);
 			path = TranslateApp;
+			sourceTree = "<group>";
+		};
+		FBE49B71264ECA5900A4A6F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FBE49B67264EC9F300A4A6F0 /* TranslationViewController.swift */,
+				FBE49B6A264ECA1E00A4A6F0 /* DictionaryViewController.swift */,
+				FBE49B6D264ECA4500A4A6F0 /* SettingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FBE49B76264EE90100A4A6F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FBE49B73264EE71B00A4A6F0 /* LanguageSelectorView.swift */,
+				FBE49B7B264EE9FB00A4A6F0 /* TranslationFieldView.swift */,
+				FBE49B78264EE91D00A4A6F0 /* HistoryTableView.swift */,
+				FBE49B7F264F3C4500A4A6F0 /* DictionaryTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,7 +160,6 @@
 			files = (
 				FBE49B5C264EC81800A4A6F0 /* LaunchScreen.storyboard in Resources */,
 				FBE49B59264EC81800A4A6F0 /* Assets.xcassets in Resources */,
-				FBE49B54264EC81500A4A6F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,24 +170,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE49B6B264ECA1E00A4A6F0 /* DictionaryViewController.swift in Sources */,
+				FBE49B68264EC9F300A4A6F0 /* TranslationViewController.swift in Sources */,
 				FBE49B57264EC81500A4A6F0 /* TranslateApp.xcdatamodeld in Sources */,
-				FBE49B51264EC81500A4A6F0 /* ViewController.swift in Sources */,
 				FBE49B4D264EC81500A4A6F0 /* AppDelegate.swift in Sources */,
+				FBE49B7C264EE9FB00A4A6F0 /* TranslationFieldView.swift in Sources */,
 				FBE49B4F264EC81500A4A6F0 /* SceneDelegate.swift in Sources */,
+				FBE49B6E264ECA4500A4A6F0 /* SettingsViewController.swift in Sources */,
+				FBE49B80264F3C4500A4A6F0 /* DictionaryTableViewCell.swift in Sources */,
+				FBE49B79264EE91E00A4A6F0 /* HistoryTableView.swift in Sources */,
+				FBE49B74264EE71B00A4A6F0 /* LanguageSelectorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FBE49B52264EC81500A4A6F0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBE49B53264EC81500A4A6F0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FBE49B5A264EC81800A4A6F0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -300,7 +328,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MuratD.TranslateApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,7 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MuratD.TranslateApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

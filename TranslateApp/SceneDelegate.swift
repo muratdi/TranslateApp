@@ -13,10 +13,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        if let windowScene = scene as? UIWindowScene {
+            window = UIWindow(windowScene: windowScene)
+            
+            let tabBarController = UITabBarController()
+            
+            let translationVC = TranslationViewController()
+            translationVC.tabBarItem = UITabBarItem(title: "Translation", image: UIImage(named: "translate"), selectedImage: nil)
+            
+            let dictionaryVC = UINavigationController(rootViewController: DictionaryViewController())
+            dictionaryVC.tabBarItem = UITabBarItem(title: "History", image: UIImage(named: "dict"), selectedImage: nil)
+            dictionaryVC.navigationBar.barTintColor = UIColor(red: 250/255, green: 216/255, blue: 105/255, alpha: 1)
+            
+            let settingsVC = SettingsViewController()
+            settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "settings"), selectedImage: nil)
+            
+            tabBarController.viewControllers = [translationVC, dictionaryVC, settingsVC]
+            tabBarController.tabBar.tintColor = .black
+            tabBarController.tabBar.barTintColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
+            tabBarController.tabBar.isTranslucent = false
+            
+            window?.rootViewController = tabBarController
+            window?.makeKeyAndVisible()
+        }
+        
         guard let _ = (scene as? UIWindowScene) else { return }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
