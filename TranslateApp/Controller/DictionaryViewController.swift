@@ -7,16 +7,18 @@
 
 import UIKit
 
-class DictionaryViewController: UITableViewController, UISearchResultsUpdating {
+class DictionaryViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "History"
         self.view.backgroundColor = .white
         
-        setupTableView()
         setupSearch()
     }
+    
+    let phraseList = WordList.sharedWordList.listOfPhrases
+    let translationList = WordList.sharedWordList.listOfTranslations
     
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -28,22 +30,24 @@ class DictionaryViewController: UITableViewController, UISearchResultsUpdating {
         definesPresentationContext = true
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        //
-    }
-    
-    private func setupTableView() {
-        tableView.register(DictionaryTableViewCell.self, forCellReuseIdentifier: "cellid")
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return phraseList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = DictionaryTableViewCell()
+        let cell = DictionaryTableViewCell(style: .subtitle, reuseIdentifier: "cellid")
+        
+        let phrase = phraseList[indexPath.item]
+        let translation = translationList[indexPath.item]
+        cell.textLabel?.text = phrase
+        cell.detailTextLabel?.text = translation
         
         return cell
     }
-    
+}
+
+extension DictionaryViewController: UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        //
+    }
 }

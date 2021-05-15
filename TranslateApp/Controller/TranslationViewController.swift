@@ -16,7 +16,7 @@ class TranslationViewController: UIViewController {
         
         setupViews()
     }
-    
+        
     let languageSelector: LanguageSelectorView = {
         let selector = LanguageSelectorView()
         selector.translatesAutoresizingMaskIntoConstraints = false

@@ -1,0 +1,28 @@
+//
+//  TranslationResponse.swift
+//  TranslateApp
+//
+//  Created by Мурат Джаримов on 15.05.2021.
+//
+
+import Foundation
+
+struct TranslationResponse: Codable {
+    
+    let translations: [Translations]
+}
+
+struct Translations: Codable {
+    let text: String
+    let detectedLanguageCode: String
+}
+
+
+//    {
+//      "translations": [
+//        {
+//          "text": "string",
+//          "detectedLanguageCode": "string"
+//        }
+//      ]
+//    }
