@@ -7,18 +7,59 @@
 
 import UIKit
 
-class DictionaryViewController: UITableViewController {
+class DictionaryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "History"
         self.view.backgroundColor = .white
-        
+        setupTableView()
         setupSearch()
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshTable), name: NSNotification.Name("refresh"), object: nil)
     }
     
-    let phraseList = WordList.sharedWordList.listOfPhrases
-    let translationList = WordList.sharedWordList.listOfTranslations
+//    var phraseList = WordList.sharedWordList.listOfPhrases
+//    var translationList = WordList.sharedWordList.listOfTranslations
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        NotificationCenter.default.addObserver(self, selector: #selector(refreshTable), name: NSNotification.Name("refresh"), object: nil)
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("refresh"), object: nil)
+//    }
+    
+    lazy var tableView: UITableView = {
+        var tv = UITableView()
+        tv.delegate = self
+        tv.dataSource = self
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
+    
+    private func setupTableView() {
+        view.addSubview(tableView)
+        
+        let tableViewConstraints = [
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(tableViewConstraints)
+    }
+
+    @objc func refreshTable(notification: NSNotification) {
+        print("Received Notification")
+        print(WordList.sharedWordList.listOfPhrases)
+        print(WordList.sharedWordList.listOfTranslations)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    
     
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -30,15 +71,19 @@ class DictionaryViewController: UITableViewController {
         definesPresentationContext = true
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return phraseList.count
+    
+}
+
+extension DictionaryViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return WordList.sharedWordList.listOfPhrases.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellid")
         
-        let phrase = phraseList[indexPath.item]
-        let translation = translationList[indexPath.item]
+        let phrase = WordList.sharedWordList.listOfPhrases[indexPath.item]
+        let translation = WordList.sharedWordList.listOfTranslations[indexPath.item]
         cell.textLabel?.text = phrase
         cell.detailTextLabel?.text = translation
         

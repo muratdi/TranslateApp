@@ -17,8 +17,8 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         setupViews()
     }
     
-    var phraseList = WordList.sharedWordList.listOfPhrases
-    var translationList = WordList.sharedWordList.listOfTranslations
+//    var phraseList = WordList.sharedWordList.listOfPhrases
+//    var translationList = WordList.sharedWordList.listOfTranslations
         
     lazy var languageSelector: LanguageSelectorView = {
         let selector = LanguageSelectorView()
@@ -67,17 +67,30 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
+        translationField.resultTextView.text = ""
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        HTTPRequestApi.sharedInstance
-            .fetchTranslation(phrase: textView.text,
-                              sourceLanguage: languageSelector.sourceLanguageButton.currentTitle!,
-                              resultLanguage: languageSelector.resultLanguageButton.currentTitle!) { (resultString: String) in
-                translationField.resultTextView.text = resultString
-                self.phraseList.append(textView.text)
-                self.translationList.append(resultString)
-            }
+        
+        if (textView.text != " " && textView.text != "") {
+            HTTPRequestApi.sharedInstance
+                .fetchTranslation(phrase: textView.text,
+                                  sourceLanguage: languageSelector.sourceLanguageButton.currentTitle!,
+                                  resultLanguage: languageSelector.resultLanguageButton.currentTitle!) { (resultString: String) in
+                    self.translationField.resultTextView.text = resultString
+//                    self.phraseList.append(textView.text)
+//                    self.translationList.append(resultString)
+                    
+                    WordList.sharedWordList.addTranslation(phrase: textView.text, translation: resultString)
+                    
+                    print(WordList.sharedWordList.listOfPhrases)
+                    print(WordList.sharedWordList.listOfTranslations)
+//                    print(self.phraseList)
+//                    print(self.translationList)
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name("refresh"), object: nil)
+                }
+        }
     }
     
     private func setupViews() {

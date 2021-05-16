@@ -11,16 +11,16 @@ class WordList {
     
     static let sharedWordList = WordList()
     
-    private(set) var listOfPhrases: [String] = ["Machine", "Remote"]
-    private(set) var listOfTranslations: [String] = ["Машина", "Удаленный"]
+    var listOfPhrases = ["Machine", "Remote"] //= [String]()
+    var listOfTranslations = ["Машина", "Удаленный"] //= [String]()
         
     func clearHistory() {
         listOfPhrases = []
         listOfTranslations = []
     }
     
-    func addTranslation(of phrase: String, with translation: String) {
-        listOfPhrases.append(phrase)
-        listOfTranslations.append(translation)
+    func addTranslation(phrase: String, translation: String) {
+        listOfPhrases.insert(phrase, at: 0)
+        listOfTranslations.insert(translation, at: 0)
     }
 }

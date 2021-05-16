@@ -13,16 +13,11 @@ struct TranslationResponse: Codable {
 }
 
 struct Translations: Codable {
-    let text: String
-    let detectedLanguageCode: String
+    let text: String?
 }
 
-
-//    {
-//      "translations": [
-//        {
-//          "text": "string",
-//          "detectedLanguageCode": "string"
-//        }
-//      ]
-//    }
+extension TranslationResponse: Sequence {
+    func makeIterator() -> Array<Translations>.Iterator {
+      return translations.makeIterator()
+    }
+  }
