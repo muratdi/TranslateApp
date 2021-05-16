@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TranslationViewController: UIViewController {
+class TranslationViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,9 @@ class TranslationViewController: UIViewController {
         
         setupViews()
     }
+    
+    var phraseList = WordList.sharedWordList.listOfPhrases
+    var translationList = WordList.sharedWordList.listOfTranslations
         
     lazy var languageSelector: LanguageSelectorView = {
         let selector = LanguageSelectorView()
@@ -34,9 +37,10 @@ class TranslationViewController: UIViewController {
         self.present(resultLanguageViewController, animated: true, completion: nil)
     }
     
-    let translationField: TranslationFieldView = {
+    lazy var translationField: TranslationFieldView = {
         let field = TranslationFieldView()
         field.layer.cornerRadius = 10
+        field.sourceTextView.delegate = self
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -61,17 +65,27 @@ class TranslationViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        languageSelector.sourceLanguageButton.addTarget(self, action: #selector(sourceLanguageButtonTapped), for: .touchUpInside)
-        languageSelector.resultLanguageButton.addTarget(self, action: #selector(resultLanguageButtonTapped), for: .touchUpInside)
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        HTTPRequestApi.sharedInstance
+            .fetchTranslation(phrase: textView.text,
+                              sourceLanguage: languageSelector.sourceLanguageButton.currentTitle!,
+                              resultLanguage: languageSelector.resultLanguageButton.currentTitle!) { (resultString: String) in
+                translationField.resultTextView.text = resultString
+                self.phraseList.append(textView.text)
+                self.translationList.append(resultString)
+            }
     }
     
     private func setupViews() {
         view.addSubview(languageSelector)
         view.addSubview(translationField)
-//
-//        languageSelector.sourceLanguageButton.addTarget(self, action: #selector(sourceLanguageButtonTapped), for: .touchUpInside)
-//        languageSelector.resultLanguageButton.addTarget(self, action: #selector(resultLanguageButtonTapped), for: .touchUpInside)
+
+        languageSelector.sourceLanguageButton.addTarget(self, action: #selector(sourceLanguageButtonTapped), for: .touchUpInside)
+        languageSelector.resultLanguageButton.addTarget(self, action: #selector(resultLanguageButtonTapped), for: .touchUpInside)
         
         let languageSelectorConstraints = [
             languageSelector.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),

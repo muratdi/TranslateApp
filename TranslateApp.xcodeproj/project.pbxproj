@@ -21,6 +21,7 @@
 		FBE49B87264FD14800A4A6F0 /* TranslationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B86264FD14800A4A6F0 /* TranslationRequest.swift */; };
 		FBE49B8B264FD2DD00A4A6F0 /* TranslationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B8A264FD2DD00A4A6F0 /* TranslationResponse.swift */; };
 		FBE49B902650515E00A4A6F0 /* LanguagePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B8F2650515E00A4A6F0 /* LanguagePickViewController.swift */; };
+		FBE49B9A26513FE800A4A6F0 /* HTTPRequestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B9926513FE800A4A6F0 /* HTTPRequestApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FBE49B86264FD14800A4A6F0 /* TranslationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequest.swift; sourceTree = "<group>"; };
 		FBE49B8A264FD2DD00A4A6F0 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
 		FBE49B8F2650515E00A4A6F0 /* LanguagePickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePickViewController.swift; sourceTree = "<group>"; };
+		FBE49B9926513FE800A4A6F0 /* HTTPRequestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				FBE49B82264FD05200A4A6F0 /* WordList.swift */,
 				FBE49B86264FD14800A4A6F0 /* TranslationRequest.swift */,
 				FBE49B8A264FD2DD00A4A6F0 /* TranslationResponse.swift */,
+				FBE49B9926513FE800A4A6F0 /* HTTPRequestApi.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE49B9A26513FE800A4A6F0 /* HTTPRequestApi.swift in Sources */,
 				FBE49B6B264ECA1E00A4A6F0 /* DictionaryViewController.swift in Sources */,
 				FBE49B83264FD05200A4A6F0 /* WordList.swift in Sources */,
 				FBE49B902650515E00A4A6F0 /* LanguagePickViewController.swift in Sources */,

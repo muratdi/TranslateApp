@@ -36,7 +36,7 @@ class TranslationFieldView: UIView, UITextViewDelegate {
     let resultTextView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .white
-        textView.text = "Some output here"
+        //textView.text = "Some output here"
         textView.font = UIFont.systemFont(ofSize: 18)
         textView.textColor = UIColor(red: 130/255, green: 130/255, blue: 130/255, alpha: 1)
         textView.translatesAutoresizingMaskIntoConstraints = false
