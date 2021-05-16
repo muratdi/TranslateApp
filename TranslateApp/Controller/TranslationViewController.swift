@@ -17,11 +17,22 @@ class TranslationViewController: UIViewController {
         setupViews()
     }
         
-    let languageSelector: LanguageSelectorView = {
+    lazy var languageSelector: LanguageSelectorView = {
         let selector = LanguageSelectorView()
         selector.translatesAutoresizingMaskIntoConstraints = false
         return selector
     }()
+    
+    @objc func sourceLanguageButtonTapped() {
+        let sourceLanguageViewController = LanguagePickViewController()
+        self.present(sourceLanguageViewController, animated: true, completion: nil)
+    }
+    
+    @objc func resultLanguageButtonTapped() {
+        let resultLanguageViewController = LanguagePickViewController()
+        resultLanguageViewController.isSourceLanguage = false
+        self.present(resultLanguageViewController, animated: true, completion: nil)
+    }
     
     let translationField: TranslationFieldView = {
         let field = TranslationFieldView()
@@ -30,9 +41,37 @@ class TranslationViewController: UIViewController {
         return field
     }()
     
+    func updateSourceLanguage(language: String) {
+        if language == languageSelector.resultLanguageButton.currentTitle {
+            languageSelector.resultLanguageButton
+                .setTitle(languageSelector.sourceLanguageButton.currentTitle, for: .normal)
+            languageSelector.sourceLanguageButton.setTitle(language, for: .normal)
+        } else {
+            languageSelector.sourceLanguageButton.setTitle(language, for: .normal)
+        }
+    }
+    
+    func updateResultLanguage(language: String) {
+        if language == languageSelector.sourceLanguageButton.currentTitle {
+            languageSelector.sourceLanguageButton
+                .setTitle(languageSelector.resultLanguageButton.currentTitle, for: .normal)
+            languageSelector.resultLanguageButton.setTitle(language, for: .normal)
+        } else {
+            languageSelector.resultLanguageButton.setTitle(language, for: .normal)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        languageSelector.sourceLanguageButton.addTarget(self, action: #selector(sourceLanguageButtonTapped), for: .touchUpInside)
+        languageSelector.resultLanguageButton.addTarget(self, action: #selector(resultLanguageButtonTapped), for: .touchUpInside)
+    }
+    
     private func setupViews() {
         view.addSubview(languageSelector)
         view.addSubview(translationField)
+//
+//        languageSelector.sourceLanguageButton.addTarget(self, action: #selector(sourceLanguageButtonTapped), for: .touchUpInside)
+//        languageSelector.resultLanguageButton.addTarget(self, action: #selector(resultLanguageButtonTapped), for: .touchUpInside)
         
         let languageSelectorConstraints = [
             languageSelector.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),

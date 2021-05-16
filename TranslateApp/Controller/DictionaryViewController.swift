@@ -35,7 +35,7 @@ class DictionaryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = DictionaryTableViewCell(style: .subtitle, reuseIdentifier: "cellid")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellid")
         
         let phrase = phraseList[indexPath.item]
         let translation = translationList[indexPath.item]
