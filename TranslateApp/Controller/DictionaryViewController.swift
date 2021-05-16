@@ -16,23 +16,15 @@ class DictionaryViewController: UIViewController {
         setupTableView()
         setupSearch()
         NotificationCenter.default.addObserver(self, selector: #selector(refreshTable), name: NSNotification.Name("refresh"), object: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clearHistory))
+        navigationItem.rightBarButtonItem?.tintColor = .black
     }
-    
-//    var phraseList = WordList.sharedWordList.listOfPhrases
-//    var translationList = WordList.sharedWordList.listOfTranslations
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        NotificationCenter.default.addObserver(self, selector: #selector(refreshTable), name: NSNotification.Name("refresh"), object: nil)
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("refresh"), object: nil)
-//    }
     
     lazy var tableView: UITableView = {
         var tv = UITableView()
         tv.delegate = self
         tv.dataSource = self
+        tv.allowsSelection = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
@@ -51,15 +43,15 @@ class DictionaryViewController: UIViewController {
     }
 
     @objc func refreshTable(notification: NSNotification) {
-        print("Received Notification")
-        print(WordList.sharedWordList.listOfPhrases)
-        print(WordList.sharedWordList.listOfTranslations)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    
+    @objc func clearHistory() {
+        WordList.sharedWordList.clearHistory()
+        self.tableView.reloadData()
+    }
     
     let searchController = UISearchController(searchResultsController: nil)
 

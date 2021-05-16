@@ -78,16 +78,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
                                   sourceLanguage: languageSelector.sourceLanguageButton.currentTitle!,
                                   resultLanguage: languageSelector.resultLanguageButton.currentTitle!) { (resultString: String) in
                     self.translationField.resultTextView.text = resultString
-//                    self.phraseList.append(textView.text)
-//                    self.translationList.append(resultString)
-                    
                     WordList.sharedWordList.addTranslation(phrase: textView.text, translation: resultString)
-                    
-                    print(WordList.sharedWordList.listOfPhrases)
-                    print(WordList.sharedWordList.listOfTranslations)
-//                    print(self.phraseList)
-//                    print(self.translationList)
-                    
                     NotificationCenter.default.post(name: NSNotification.Name("refresh"), object: nil)
                 }
         }

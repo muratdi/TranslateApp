@@ -11,8 +11,8 @@ class WordList {
     
     static let sharedWordList = WordList()
     
-    var listOfPhrases = ["Machine", "Remote"] //= [String]()
-    var listOfTranslations = ["Машина", "Удаленный"] //= [String]()
+    var listOfPhrases = [String]()
+    var listOfTranslations = [String]()
         
     func clearHistory() {
         listOfPhrases = []

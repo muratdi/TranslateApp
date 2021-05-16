@@ -17,11 +17,11 @@ class HTTPRequestApi {
         let url = URL(string: "https://translate.api.cloud.yandex.net/translate/v2/translate")
         guard let requestUrl = url else { fatalError() }
         
-        let texts = phrase.split(separator: " ")
+        //let texts = phrase.split(separator: " ")
         
         let json: [String: Any] = ["sourceLanguageCode": setLanguageCode(language: sourceLanguage),
                                    "targetLanguageCode": setLanguageCode(language: resultLanguage),
-                                   "texts": texts,
+                                   "texts": phrase,
                                    "folderId": folderName
                                    ]
 
@@ -33,7 +33,6 @@ class HTTPRequestApi {
         request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            //print(response!)
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
                 return
@@ -51,22 +50,10 @@ class HTTPRequestApi {
                 DispatchQueue.main.async {
                     completion(resultString)
                 }
-                //print(resultString)
                 
             } catch let jsonError {
                 print(jsonError)
             }
-            
-//            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-//            if let responseJSON = responseJSON as? [String: Any] {
-//                print(responseJSON)
-//            }
-            
-//            let responseJson: TranslationResponse = try JSONDecoder().decode(TranslationResponse.self, from: data)
-//            print(responseJson)
-//            for item in responseJson {
-//                let resultString = responseJson.joined()
-//            }
         }
         task.resume()
         

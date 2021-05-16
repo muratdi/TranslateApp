@@ -18,7 +18,6 @@
 		FBE49B74264EE71B00A4A6F0 /* LanguageSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B73264EE71B00A4A6F0 /* LanguageSelectorView.swift */; };
 		FBE49B7C264EE9FB00A4A6F0 /* TranslationFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B7B264EE9FB00A4A6F0 /* TranslationFieldView.swift */; };
 		FBE49B83264FD05200A4A6F0 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B82264FD05200A4A6F0 /* WordList.swift */; };
-		FBE49B87264FD14800A4A6F0 /* TranslationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B86264FD14800A4A6F0 /* TranslationRequest.swift */; };
 		FBE49B8B264FD2DD00A4A6F0 /* TranslationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B8A264FD2DD00A4A6F0 /* TranslationResponse.swift */; };
 		FBE49B902650515E00A4A6F0 /* LanguagePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B8F2650515E00A4A6F0 /* LanguagePickViewController.swift */; };
 		FBE49B9A26513FE800A4A6F0 /* HTTPRequestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE49B9926513FE800A4A6F0 /* HTTPRequestApi.swift */; };
@@ -38,7 +37,6 @@
 		FBE49B73264EE71B00A4A6F0 /* LanguageSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectorView.swift; sourceTree = "<group>"; };
 		FBE49B7B264EE9FB00A4A6F0 /* TranslationFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationFieldView.swift; sourceTree = "<group>"; };
 		FBE49B82264FD05200A4A6F0 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
-		FBE49B86264FD14800A4A6F0 /* TranslationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequest.swift; sourceTree = "<group>"; };
 		FBE49B8A264FD2DD00A4A6F0 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
 		FBE49B8F2650515E00A4A6F0 /* LanguagePickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePickViewController.swift; sourceTree = "<group>"; };
 		FBE49B9926513FE800A4A6F0 /* HTTPRequestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestApi.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				FBE49B82264FD05200A4A6F0 /* WordList.swift */,
-				FBE49B86264FD14800A4A6F0 /* TranslationRequest.swift */,
 				FBE49B8A264FD2DD00A4A6F0 /* TranslationResponse.swift */,
 				FBE49B9926513FE800A4A6F0 /* HTTPRequestApi.swift */,
 			);
@@ -196,7 +193,6 @@
 				FBE49B4D264EC81500A4A6F0 /* AppDelegate.swift in Sources */,
 				FBE49B7C264EE9FB00A4A6F0 /* TranslationFieldView.swift in Sources */,
 				FBE49B4F264EC81500A4A6F0 /* SceneDelegate.swift in Sources */,
-				FBE49B87264FD14800A4A6F0 /* TranslationRequest.swift in Sources */,
 				FBE49B8B264FD2DD00A4A6F0 /* TranslationResponse.swift in Sources */,
 				FBE49B6E264ECA4500A4A6F0 /* SettingsViewController.swift in Sources */,
 				FBE49B74264EE71B00A4A6F0 /* LanguageSelectorView.swift in Sources */,
