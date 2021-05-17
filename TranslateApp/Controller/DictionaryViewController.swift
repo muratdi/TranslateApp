@@ -69,14 +69,14 @@ class DictionaryViewController: UIViewController {
     }
     
     func filterContentForSearchText(_ searchText: String) {
-        filteredPhrases = WordList.sharedWordList.listOfPhrases.filter { (phrase: String) -> Bool in
-            return phrase.lowercased().contains(searchText.lowercased())
+        filteredPhrases = WordList.sharedWordList.listOfWordPairs.filter { (pair: WordPair) -> Bool in
+            return pair.phrase.lowercased().contains(searchText.lowercased()) || pair.translation.lowercased().contains(searchText.lowercased())
         }
         
         tableView.reloadData()
     }
     
-    var filteredPhrases = [String]()
+    var filteredPhrases = [WordPair]()
     
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -94,7 +94,7 @@ extension DictionaryViewController: UITableViewDataSource, UITableViewDelegate {
             return filteredPhrases.count
         }
         
-        return WordList.sharedWordList.listOfPhrases.count
+        return WordList.sharedWordList.listOfWordPairs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,11 +103,11 @@ extension DictionaryViewController: UITableViewDataSource, UITableViewDelegate {
         let translation: String
         
         if isFiltering {
-            phrase = filteredPhrases[indexPath.item]
-            translation = filteredPhrases[indexPath.item]
+            phrase = filteredPhrases[indexPath.item].phrase
+            translation = filteredPhrases[indexPath.item].translation
         } else {
-            phrase = WordList.sharedWordList.listOfPhrases[indexPath.item]
-            translation = WordList.sharedWordList.listOfTranslations[indexPath.item]
+            phrase = WordList.sharedWordList.listOfWordPairs[indexPath.item].phrase
+            translation = WordList.sharedWordList.listOfWordPairs[indexPath.item].translation
         }
 
         cell.textLabel?.text = phrase

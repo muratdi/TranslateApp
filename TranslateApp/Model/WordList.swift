@@ -10,17 +10,15 @@ import Foundation
 class WordList {
     
     static let sharedWordList = WordList()
-    
-    var listOfPhrases = [String]()
-    var listOfTranslations = [String]()
+
+    var listOfWordPairs = [WordPair]()
         
     func clearHistory() {
-        listOfPhrases = []
-        listOfTranslations = []
+        listOfWordPairs = []
     }
     
     func addTranslation(phrase: String, translation: String) {
-        listOfPhrases.insert(phrase, at: 0)
-        listOfTranslations.insert(translation, at: 0)
+        let newElement = WordPair(phrase: phrase, translation: translation)
+        listOfWordPairs.insert(newElement, at: 0)
     }
 }
