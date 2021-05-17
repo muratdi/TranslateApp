@@ -13,9 +13,12 @@ class DictionaryViewController: UIViewController {
         super.viewDidLoad()
         title = "History"
         self.view.backgroundColor = .white
+        
         setupTableView()
         setupSearch()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(refreshTable), name: NSNotification.Name("refresh"), object: nil)
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clearHistory))
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
@@ -53,8 +56,10 @@ class DictionaryViewController: UIViewController {
         self.tableView.reloadData()
     }
     
+    // search magic starts here:
+    
     let searchController = UISearchController(searchResultsController: nil)
-
+    
     private func setupSearch() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -63,28 +68,57 @@ class DictionaryViewController: UIViewController {
         definesPresentationContext = true
     }
     
+    func filterContentForSearchText(_ searchText: String) {
+        filteredPhrases = WordList.sharedWordList.listOfPhrases.filter { (phrase: String) -> Bool in
+            return phrase.lowercased().contains(searchText.lowercased())
+        }
+        
+        tableView.reloadData()
+    }
+    
+    var filteredPhrases = [String]()
+    
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
     
 }
 
 extension DictionaryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredPhrases.count
+        }
+        
         return WordList.sharedWordList.listOfPhrases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellid")
+        let phrase: String
+        let translation: String
         
-        let phrase = WordList.sharedWordList.listOfPhrases[indexPath.item]
-        let translation = WordList.sharedWordList.listOfTranslations[indexPath.item]
+        if isFiltering {
+            phrase = filteredPhrases[indexPath.item]
+            translation = filteredPhrases[indexPath.item]
+        } else {
+            phrase = WordList.sharedWordList.listOfPhrases[indexPath.item]
+            translation = WordList.sharedWordList.listOfTranslations[indexPath.item]
+        }
+
         cell.textLabel?.text = phrase
         cell.detailTextLabel?.text = translation
-        
         return cell
     }
 }
 
 extension DictionaryViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
-        //
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
     }
 }

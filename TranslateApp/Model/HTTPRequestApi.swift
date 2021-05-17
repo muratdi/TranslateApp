@@ -11,7 +11,7 @@ class HTTPRequestApi {
     static let sharedInstance = HTTPRequestApi()
     
     let folderName = "b1gepse5ftp1b58k9s3m"
-    let iamToken = "t1.9euelZqRyonIy8-ejpmVjs2PlZPHzu3rnpWam8jNloyLi83Hz8yNlJiJisfl8_dwFXt6-e8RTj5J_d3z9zBEeHr57xFOPkn9.CLkNlLvs7sj3O8anq7H2HeMIOquNqMrhQ2W6WspPR9OKtCGJtJElDZTSyJOz6bR_8_ce11PrC3-zRwdpAARiDQ"
+    let iamToken = "t1.9euelZqRyonIy8-ejpmVjs2PlZPHzu3rnpWam8jNloyLi83Hz8yNlJiJisfl9PcxeXZ6-e9kClLj3fT3cSd0evnvZApS4w.XbEaZyiSe9Ez9Z9-LHRrl0-2E-qA_KOPFbXOQkpZCdHsknYrUMTz_v1rBnGrTL2IK166y-XCj-MGhqYOgCnOBw"
     
     func fetchTranslation(phrase: String, sourceLanguage: String, resultLanguage: String, completion: @escaping (String) ->()) {
         let url = URL(string: "https://translate.api.cloud.yandex.net/translate/v2/translate")

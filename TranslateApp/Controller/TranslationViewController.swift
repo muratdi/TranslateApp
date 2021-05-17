@@ -17,9 +17,6 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         setupViews()
     }
     
-//    var phraseList = WordList.sharedWordList.listOfPhrases
-//    var translationList = WordList.sharedWordList.listOfTranslations
-        
     lazy var languageSelector: LanguageSelectorView = {
         let selector = LanguageSelectorView()
         selector.translatesAutoresizingMaskIntoConstraints = false
