@@ -19,7 +19,6 @@ class LanguageSelectorView: UIStackView {
         button.setImage(UIImage(named: "change")?.withTintColor(.darkGray), for: .normal)
         button.contentMode = .scaleAspectFill
         button.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        button.addTarget(self, action: #selector(swapButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -40,12 +39,6 @@ class LanguageSelectorView: UIStackView {
         button.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return button
     }()
-    
-    @objc func swapButtonTapped() {
-        let tempTitle = sourceLanguageButton.currentTitle
-        sourceLanguageButton.setTitle(resultLanguageButton.currentTitle, for: .normal)
-        resultLanguageButton.setTitle(tempTitle, for: .normal)
-    }
 
     private func setupViews() {
         axis = NSLayoutConstraint.Axis.horizontal

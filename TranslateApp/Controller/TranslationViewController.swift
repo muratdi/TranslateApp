@@ -34,6 +34,12 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         self.present(resultLanguageViewController, animated: true, completion: nil)
     }
     
+    @objc func swapButtonTapped() {
+        let tempTitle = languageSelector.sourceLanguageButton.currentTitle
+        languageSelector.sourceLanguageButton.setTitle(languageSelector.resultLanguageButton.currentTitle, for: .normal)
+        languageSelector.resultLanguageButton.setTitle(tempTitle, for: .normal)
+    }
+    
     lazy var translationField: TranslationFieldView = {
         let field = TranslationFieldView()
         field.layer.cornerRadius = 10
@@ -87,6 +93,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
 
         languageSelector.sourceLanguageButton.addTarget(self, action: #selector(sourceLanguageButtonTapped), for: .touchUpInside)
         languageSelector.resultLanguageButton.addTarget(self, action: #selector(resultLanguageButtonTapped), for: .touchUpInside)
+        languageSelector.swapLanguageButton.addTarget(self, action: #selector(swapButtonTapped), for: .touchUpInside)
         
         let languageSelectorConstraints = [
             languageSelector.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
