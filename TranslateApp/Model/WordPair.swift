@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WordPair {
+struct WordPair: Codable {
     var phrase: String
     var translation: String
 }
